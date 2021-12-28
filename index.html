@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Etrandish phonetical renderer</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  </head>
+  <body>
+<div class="container-fluid">
+  <h1>Etrandish dialectal renderer</h1>
+	<p>Enter Etrandish phonological text:</p>
+	<textarea id="inputtext" name="inputtext" rows="8" style="width:80%;margin:10px;">ɛtrɑndɛn reɪkt</textarea>
+	<p>Phonetical transcription:</p>
+	<input type="button" onclick="modifyText()" value="Render phonetically"><br>
+	<textarea readonly id="outputtext" name="outputtext" rows="8" style="width:80%;margin:10px;"> </textarea>
+<p id="dialect"><strong>Choose dialect: </strong>
+<select name="dialect_select" id="dialect_select" onchange="dialectSelected()">
+    <option value="dial_standard">Standard Etrandish</option>
+    <option value="dial_north">Northern Etrandish</option>
+    <option value="dial_west">Western Etrandish</option>
+    <option value="dial_east">Eastern Etrandish</option>
+    <option value="dial_south">Southern Etrandish</option>
+    <option value="dial_copp">Copperport dialect</option>
+    <option value="dial_scaur">Scaurwél dialect</option>
+</select>
+</p>
+
+<p id="uvular_r_init" hidden><strong>Your preferred way to pronounce R before vowels: </strong>
+<select name="northern_r_select1" id="northern_r_select1" onchange="uvularRSelect1()">
+    <option value="type_a">[ʀ] Uvular trill / flap</option>
+    <option value="type_b">[ʁ̝] Voiced uvular fricative</option>
+</select>
+</p>
+
+<p id="uvular_r_final" hidden><strong>Your preferred way to pronounce R in the coda: </strong>
+<select name="northern_r_select2" id="northern_r_select2">
+    <option value="type_a1">[ʁ̞] Uvular approximant</option>
+    <option value="type_a2">[ɐ̯] Semivowel</option>
+    <option value="type_a3">[Vˤː] Simultaneous pharyngealization and lengthening of the preceding vowel</option>
+</select>
+</p>
+
+<p id="southern_rhotic" hidden>
+<input type="checkbox" id="southern_rhotic_select" name="southern_rhotic_select" onchange="rhoticSelected()" checked>
+<label for="southern_rhotic_select"><strong>Rhotic</strong></label>
+<p>
+
+<p id="alveolar_r_final" hidden><strong>Your preferred way to pronounce R in the coda: </strong>
+<select name="alveolar_r_final_select" id="alveolar_r_final_select">
+    <option value="type_r1">[ɹ̠ˠ] Velarized post-alveolar approximant</option>
+    <option value="type_r2">[ɹ̠ˤ] Pharyngealized post-alveolar approximant</option>
+    <option value="type_r3">[ɻˠ] Velarized retroflex approximant</option>
+    <option value="type_r4">[ɻˤ] Pharyngealized retroflex approximant</option>
+    <option value="type_r5">[V˞ˤ] R-colouring and pharyngealization of the previous vowel</option>
+</select>
+</p>
+
+</div>
+</div>
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+	<script src="index.js"></script>
+  </body>
+</html>
