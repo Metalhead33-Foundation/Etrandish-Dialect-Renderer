@@ -116,22 +116,30 @@ function rhoticSelected() {
 }
 function dialectSelected() {
 	const selected_dialect = document.getElementById("dialect_select").value;
-	if(selected_dialect === "dial_north") {
-		document.getElementById("uvular_r_init").hidden = false;
-		uvularRSelect1();
-		return;
-	} else {
-		document.getElementById("uvular_r_init").hidden = true;
-		document.getElementById("uvular_r_final").hidden = true;
-	}
-	if(selected_dialect === "dial_standard") {
-		document.getElementById("alveolar_r_final").hidden = false;
-		return;
-	} else if(selected_dialect === "dial_south") {
-		document.getElementById("southern_rhotic").hidden = false;
-		rhoticSelected();
-	} else {
-		document.getElementById("alveolar_r_final").hidden = true;
-		document.getElementById("southern_rhotic").hidden = true;
+	document.getElementById("uvular_r_init").hidden = true;
+	document.getElementById("uvular_r_final").hidden = true;
+	document.getElementById("alveolar_r_final").hidden = true;
+	document.getElementById("southern_rhotic").hidden = true;
+	document.getElementById("eastern_rhotic").hidden = true;
+	switch(document.getElementById("dialect_select").value) {
+		case "dial_north":
+			document.getElementById("uvular_r_init").hidden = false;
+			uvularRSelect1();
+			break;
+		case "dial_standard":
+			document.getElementById("alveolar_r_final").hidden = false;
+			break;
+		case "dial_south":
+			document.getElementById("southern_rhotic").hidden = false;
+			rhoticSelected();
+			break;
+		case "dial_east": // fall-through
+		case "dial_copp": // fall-through
+		case "dial_mnt"
+			document.getElementById("eastern_rhotic").hidden = false;
+			break;
+		default:
+			break;
 	}
 }
+dialectSelected();
