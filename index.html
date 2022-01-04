@@ -27,29 +27,37 @@
     <option value="dial_mnt">Eastern Mountains dialect</option>
 </select>
 </p>
-
+<!--- 
+	Primary allophone for the Uvular R in northern dialects
+!--->
 <p id="uvular_r_init" hidden><strong>Your preferred way to pronounce R before vowels: </strong>
 <select name="northern_r_select1" id="northern_r_select1" onchange="uvularRSelect1()">
     <option value="type_a">[ʀ] Uvular trill / flap</option>
     <option value="type_b">[ʁ̝] Voiced uvular fricative</option>
 </select>
 </p>
-
+<!--- 
+	Syllable-final allophone for the Uvular R in northern dialects with the trill/flap
+!--->
 <p id="uvular_r_final" hidden><strong>Your preferred way to pronounce R in the coda: </strong>
-<select name="northern_r_select2" id="northern_r_select2">
+<select name="northern_r_select2" id="northern_r_select2" onchange="updateRhoticType()">
     <option value="type_a1">[ʁ̞] Uvular approximant</option>
     <option value="type_a2">[ɐ̯] Semivowel</option>
     <option value="type_a3">[Vˤː] Simultaneous pharyngealization and lengthening of the preceding vowel</option>
 </select>
 </p>
-
+<!--- 
+	Southern dialects - rhotic or non-rhotic
+!--->
 <p id="southern_rhotic" hidden>
 <input type="checkbox" id="southern_rhotic_select" name="southern_rhotic_select" onchange="rhoticSelected()" checked>
 <label for="southern_rhotic_select"><strong>Rhotic</strong></label>
 <p>
-
+<!--- 
+	Syllable-final allophone of Alveolar R in Standard Etrandish and Rhotic Southern Etrandish
+!--->
 <p id="alveolar_r_final" hidden><strong>Your preferred way to pronounce R in the coda: </strong>
-<select name="alveolar_r_final_select" id="alveolar_r_final_select">
+<select name="alveolar_r_final_select" id="alveolar_r_final_select" onchange="updateRhoticType()">
     <option value="type_r1">[ɹ̠ˠ] Velarized post-alveolar approximant</option>
     <option value="type_r2">[ɹ̠ˤ] Pharyngealized post-alveolar approximant</option>
     <option value="type_r3">[ɻˠ] Velarized retroflex approximant</option>
@@ -57,16 +65,30 @@
     <option value="type_r5">[V˞ˤ] R-colouring and pharyngealization of the previous vowel</option>
 </select>
 </p>
-
+<!--- 
+	Eastern Mountains and Copperport dialects - Level of palatalization
+!--->
+<p id="eastern_palatalization" hidden><strong>Your preferred level of palatalization: </strong>
+<select name="eastern_palatalization_select" id="eastern_palatalization_select">
+    <option value="palatal_1">[nʲ tʲ dʲ sʲ zʲ lʲ] - Weak</option>
+	<option value="palatal_2">[ɲ c ɟ sʲ zʲ ʎ] - Strong</option>
+	<option value="palatal_3">[ɲ t͡ɕ d͡ʑ ɕ ʑ ʎ] - Very Strong</option>
+</select>
+<p>
+<!--- 
+	Eastern Mountains and Copperport dialects - Alveolar vs Uvular R
+!--->
 <p id="eastern_rhotic" hidden><strong>Your preferred trill: </strong>
-<select name="eastern_rhotic_select" id="eastern_rhotic_select">
+<select name="eastern_rhotic_select" id="eastern_rhotic_select" onchange="updateRhoticType()">
     <option value="type_a">[r] Alveolar</option>
     <option value="type_b">[ʀ] Uvular</option>
 </select>
 <p>
 
 </div>
-</div>
+<!--- 
+	Bootstrap scripts
+!--->
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
